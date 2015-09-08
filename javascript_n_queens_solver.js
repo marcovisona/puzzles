@@ -16,6 +16,9 @@ function displayQueens(solution) {
 
 
 function isValidPosition(nQueenPositions, newPosition){
+
+    numOfChecks++;
+
     for(var i=0; i < nQueenPositions.length; i++){
         var existingPosition = nQueenPositions[i]
 
@@ -55,11 +58,14 @@ function solve(nQueensSize, nQueenPositions, currentColumn) {
 }
 
 
+// MAIN
+
 if(process.argv.length < 3) {
     console.log("usage: node javascript_n_queens_solver.js BOARD_SIZE [-d]");
     process.exit();
 }
 
+var numOfChecks = 0;
 var nQueensSize = +process.argv[2] || 0
 var displaySolutions = process.argv[3] === '-d'
 var startTime = Date.now()
@@ -69,7 +75,7 @@ var endTime = Date.now()
 var elapsedTime = endTime - startTime
 
 console.log("N-Queens Found %d solutions in %ds on a %dx%d board", solutions.length, elapsedTime/1000, nQueensSize, nQueensSize);
-
+console.log("Number of checks: %d", numOfChecks);
 
 if(displaySolutions) {
     var counter = 1;

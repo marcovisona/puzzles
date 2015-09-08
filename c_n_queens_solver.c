@@ -53,7 +53,7 @@ int main( int argc, char *argv[]) {
     
     
     
-    printf("%d\n", sizeOfBoard);
+    // printf("%d\n", sizeOfBoard);
     solution_t working = createSolution(sizeOfBoard);  
     
     start = clock();
